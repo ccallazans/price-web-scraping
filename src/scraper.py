@@ -11,11 +11,11 @@ def access_page(url):
     
     return request.content
 
-def page_parse(page):
+def parse_page_content(page):
     soup = BeautifulSoup(page, 'html.parser')
     print(soup.prettify())
 
 
 
 teste = access_page('https://www.amazon.com.br/deals?ref_=nav_cs_gb')
-page_parse(teste)
+parse_page_content(teste)
