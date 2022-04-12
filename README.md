@@ -1,7 +1,7 @@
 
 Amazon Price Web Scrap
 =============
-Collect historical data from the product link.
+Collect Historical Price Data From Amazon
 
 Table of Contents
 -----------------
@@ -15,24 +15,31 @@ Table of Contents
 Project Background
 ----------
 
-While studying data engineering processes, we decided to create a practical project using the acquired knowledge.
+Collect historical price data for selected products in order to use it for analytical purposes.
 
 
 Install & Setup
 ---------------
-"""
+```html 
 git clone https://github.com/ccallazans/price-web-scraping.git
 cd price-web-scraping
-"""
-"""
+```
+Install required packages
+```
 pip install -r requirements.txt
-"""
+```
 
 
 Usage
 -----
 
-Place code examples here and other ways to use this project/pipeline.
+```
+python src/app.py amazon_product_link
+```
+ex:
+```
+python src/app.py https://www.amazon.com.br/gp/product/B07FQK1TS9
+```
 
 
 
