@@ -20,10 +20,13 @@ While studying data engineering processes, we decided to create a practical proj
 
 Install & Setup
 ---------------
-
+"""
 git clone https://github.com/ccallazans/price-web-scraping.git
 cd price-web-scraping
+"""
+"""
 pip install -r requirements.txt
+"""
 
 
 Usage
