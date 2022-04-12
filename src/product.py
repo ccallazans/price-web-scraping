@@ -1,5 +1,6 @@
 import os
 import requests
+import datetime
 import pandas as pd
 from bs4 import BeautifulSoup
 
@@ -57,7 +58,8 @@ def to_dict(*args):
         "Name": args[0],
         "Price": args[1],
         "Link": args[2],
-        "Image": args[3]
+        "Image": args[3],
+        "Timestamp": datetime.datetime.now(),
     }
 
     return dictionary

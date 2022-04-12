@@ -14,7 +14,7 @@ def main(link):
     page = access_page(link, HEADERS)
     collected_data = parse_page_content(page)
 
-    print("Collected Data: \n", json.dumps(collected_data, indent=4))
+    print("Collected Data: \n", json.dumps(collected_data, indent=4, default=str))
     return append_data(collected_data)
 
 
