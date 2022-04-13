@@ -17,6 +17,8 @@ Project Background
 
 Collect historical price data for selected products in order to use it for analytical purposes.
 
+Objective: show to a client the variation of price about one or more product.
+
 
 Install & Setup
 ---------------
