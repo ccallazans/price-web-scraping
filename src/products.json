@@ -1,0 +1,9 @@
+{
+    "_comment": "Example product list",
+    "products": [
+        "https://www.amazon.com.br/Apple-iPhone-13-mini-128-GB/dp/B09L1NQBYN",
+        "https://www.amazon.com.br/Kindle-Paperwhite-8GB/dp/B08N3J8GTX",
+        "https://www.amazon.com.br/Echo-Dot-3ª-Geração-Cor-Preta/dp/B07PDHSJ1H",
+        "https://www.amazon.com.br/SM-T735NZKQZTO-TABLET-SAMSUNG-GALAXY-128GB/dp/B09KMKD84X"
+    ]
+}

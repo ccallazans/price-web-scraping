@@ -12,6 +12,10 @@ def access_page(url, header):
     
     return request.content
 
+def get_product_id(url):
+    splitted_link = url.split('dp/')[1]
+    return splitted_link.split('/')[0]
+
 
 def get_product_name(page):
     find_name = page.find_all('span', id="productTitle")
@@ -55,32 +59,34 @@ def get_product_image(page):
 def to_dict(*args):
 
     dictionary = {
-        "Name": args[0],
-        "Price": args[1],
-        "Link": args[2],
-        "Image": args[3],
-        "Timestamp": datetime.datetime.now(),
+        "id" : args[0],
+        "name" : args[1],
+        "price": args[2],
+        "link": args[3],
+        "image": args[4],
+        "timestamp": datetime.datetime.now(),
     }
 
     return dictionary
 
 
-def parse_page_content(page):
+def parse_page_content(page, url):
     soup = BeautifulSoup(page, 'html.parser')
     
+    product_id = get_product_id(url)
     product_name = get_product_name(soup)
     product_price = get_product_price(soup)
     product_link = get_product_link(soup)
     product_image = get_product_image(soup)
     
-    return to_dict(product_name, product_price, product_link, product_image)
+    return to_dict(product_id, product_name, product_price, product_link, product_image)
 
 
 def append_data(json_data):
     if os.path.exists('src/' + DATA_FOLDER + 'prices.csv'):
         data = pd.read_csv('src/' + DATA_FOLDER + 'prices.csv')
     else:
-        data = pd.DataFrame(columns=["Name","Price","Link","Image"])
+        data = pd.DataFrame(columns=["id","name","price","link","image"])
         
     data = data.append(json_data, ignore_index=True)
     return data.to_csv('src/' + DATA_FOLDER + 'prices.csv', index=False)

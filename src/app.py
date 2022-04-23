@@ -9,14 +9,29 @@ HEADERS = ({
     'Accept-Language': 'en-US, en;q=0.5'
 })
 
+def open_json_file(path):
+    f = open(path)
+    return json.load(f)
 
-def main(link):
-    page = access_page(link, HEADERS)
-    collected_data = parse_page_content(page)
+def main(arg, product_file=False):
+    if product_file == True:
+        items = open_json_file('src/products.json')
+        list_items = items["products"] 
+    else:
+        list_items = [arg]
 
-    print("Collected Data: \n", json.dumps(collected_data, indent=4, default=str))
-    return append_data(collected_data)
+    for link in list_items:
+        page = access_page(link, HEADERS)
+        collected_data = parse_page_content(page, link)
+
+        print("Collected Data: \n", json.dumps(collected_data, indent=4, default=str))
+        append_data(collected_data)
+
+    return False
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    if len(sys.argv) == 1:
+        main("None", True)
+    else:
+        main(sys.argv[1])

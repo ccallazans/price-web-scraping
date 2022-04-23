@@ -35,11 +35,14 @@ pip install -r requirements.txt
 Usage
 -----
 
+It can be used to collect the data from a group of links. Use the "src/products.json" file to edit these links
+```
+python src/app.py
+```
+It can be used to collect the data from an specific item.
 ```
 python src/app.py amazon_product_link
-```
 ex:
-```
 python src/app.py https://www.amazon.com.br/gp/product/B07FQK1TS9
 ```
 
