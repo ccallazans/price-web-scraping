@@ -30,6 +30,10 @@ Install required packages
 ```
 pip install -r requirements.txt
 ```
+Install AWS Cli and configure access to s3
+```
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+```
 
 
 Usage
