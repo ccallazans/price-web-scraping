@@ -3,6 +3,8 @@ import datetime
 import pandas as pd
 from bs4 import BeautifulSoup
 
+KEY_NAME = 'price-' + datetime.datetime.now().strftime("%Y-%m-%d") + '.csv'
+
 def access_page(url, header):
     request = requests.get(url, headers=header)
     
@@ -82,4 +84,4 @@ def append_data(json_data):
     data = pd.DataFrame(columns=["product_id","name","price","link","image"])
         
     data = data.append(json_data, ignore_index=True)
-    return data.to_csv('src/data/prices.csv', index=False)
+    return data.to_csv('src/data/' + KEY_NAME, index=False)

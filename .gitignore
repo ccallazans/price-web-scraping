@@ -2,3 +2,4 @@ env/
 src/__pycache__/
 src/data/prices.csv
 .ipynb_checkpoints/
+src/data/*
