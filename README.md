@@ -14,8 +14,10 @@ Table of Contents
 
 Project Background
 ----------
+![Pipeline](/assets/pipeline.png "Pipeline")
 
 Collect historical price data for selected products in order to use it for analytical purposes.
+Save price data on S3 and local file system.
 
 Objective: show to a client the variation of price about one or more product.
 
