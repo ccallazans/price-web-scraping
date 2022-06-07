@@ -36,7 +36,7 @@ Install AWS Cli and configure access to s3
 ```
 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 ```
-Edit "BUCKET_NAME" on connection.py.
+Look the name gave by you in Amazon S3 Bucket and edit the variable "BUCKET_NAME" on connection.py.
 
 
 Usage
