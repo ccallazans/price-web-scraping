@@ -3,3 +3,5 @@ src/__pycache__/
 src/data/prices.csv
 .ipynb_checkpoints/
 src/data/*
+aws/awscliv2.zip
+airflow/logs/*

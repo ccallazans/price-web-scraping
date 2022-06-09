@@ -17,7 +17,7 @@ def open_json_file(path):
 
 def main(arg, product_file=False):
     if product_file == True:
-        items = open_json_file('src/products.json')
+        items = open_json_file('/opt/airflow/src/products.json')
         list_items = items["products"] 
     else:
         list_items = [arg]
@@ -31,10 +31,9 @@ def main(arg, product_file=False):
         print("Collected Data: \n", json.dumps(collected_data, indent=4, default=str))
         data = data.append(collected_data, ignore_index=True)
 
-    append_data(data)
-    upload_file(data)
+    # append_data(data)
+    # upload_file(data)
 
-    return False
 
 
 if __name__ == "__main__":
