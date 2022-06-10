@@ -2,7 +2,7 @@ import boto3
 import datetime
 import io
 
-BUCKET_NAME = 'BUCKET'
+BUCKET_NAME = ''
 KEY_NAME = 'price-' + datetime.datetime.now().strftime("%Y-%m-%d") + '.csv'
 
 def upload_file(data):

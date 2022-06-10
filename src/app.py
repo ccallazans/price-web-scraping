@@ -32,7 +32,7 @@ def main(arg, product_file=False):
         data = data.append(collected_data, ignore_index=True)
 
     # append_data(data)
-    # upload_file(data)
+    upload_file(data)
 
 
 
