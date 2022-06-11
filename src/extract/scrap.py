@@ -1,14 +1,11 @@
-import requests
+import json
 import datetime
 import pandas as pd
 from bs4 import BeautifulSoup
 
-KEY_NAME = 'price-' + datetime.datetime.now().strftime("%Y-%m-%d") + '.csv'
-
-def access_page(url, header):
-    request = requests.get(url, headers=header)
-    
-    return request.content
+def open_json_file(path):
+    f = open(path)
+    return json.load(f)
 
 def get_product_id(url):
     splitted_link = url.split('dp/')[1]
@@ -78,10 +75,3 @@ def parse_page_content(page, url):
     product_image = get_product_image(soup)
     
     return to_dict(product_id, product_name, product_price, product_link, product_image)
-
-
-def append_data(json_data):
-    data = pd.DataFrame(columns=["product_id","name","price","link","image"])
-        
-    data = data.append(json_data, ignore_index=True)
-    return data.to_csv('src/data/' + KEY_NAME, index=False)

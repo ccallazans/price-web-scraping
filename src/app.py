@@ -1,8 +1,8 @@
-import sys
 import json
 import pandas as pd
-from etl import access_page, parse_page_content, append_data
-from connection import upload_file
+from connection.utils import access_page_content
+from extract.scrap import parse_page_content, open_json_file
+
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
@@ -11,33 +11,26 @@ HEADERS = ({
     'Accept-Language': 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
 })
 
-def open_json_file(path):
-    f = open(path)
-    return json.load(f)
 
-def main(arg, product_file=False):
-    if product_file == True:
-        items = open_json_file('/opt/airflow/src/products.json')
-        list_items = items["products"] 
-    else:
-        list_items = [arg]
+def main():
+
+    items = open_json_file('/opt/airflow/src/products.json')
+    list_items = items["products"] 
 
     data = pd.DataFrame(columns=["product_id","name","price","link","image"])
 
     for link in list_items:
-        page = access_page(link, HEADERS)
-        collected_data = parse_page_content(page, link)
+        page = access_page_content(link, HEADERS)
+
+        try:
+            collected_data = parse_page_content(page, link)
+        except:
+            raise Exception(f"\nERROR ON COLLECTING PRODUCT: {link}\n") 
 
         print("Collected Data: \n", json.dumps(collected_data, indent=4, default=str))
         data = data.append(collected_data, ignore_index=True)
 
-    # append_data(data)
-    upload_file(data)
-
-
+    data.to_csv('/opt/airflow/src/temp/file.csv', index=False)
 
 if __name__ == "__main__":
-    if len(sys.argv) == 1:
-        main("None", True)
-    else:
-        main(sys.argv[1])
+    main()

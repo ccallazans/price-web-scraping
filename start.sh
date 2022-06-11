@@ -1,3 +1,3 @@
 cd airflow
 docker-compose up airflow-init
-docker-compose up
+docker-compose up -d

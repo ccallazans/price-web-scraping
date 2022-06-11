@@ -2,3 +2,4 @@ beautifulsoup4
 boto3
 numpy
 pandas
+apache-airflow[amazon]

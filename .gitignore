@@ -5,3 +5,5 @@ src/data/prices.csv
 src/data/*
 aws/awscliv2.zip
 airflow/logs/*
+src/temp/file.csv
+**/__pycache__/
