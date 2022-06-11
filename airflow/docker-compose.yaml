@@ -59,9 +59,10 @@ x-airflow-common:
     AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth'
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
-    AWS_ACCESS_KEY_ID: '#'
-    AWS_SECRET_ACCESS_KEY: '#'
-    AWS_DEFAULT_REGION: '#'
+    AWS_ACCESS_KEY_ID: ''
+    AWS_SECRET_ACCESS_KEY: ''
+    AWS_DEFAULT_REGION: ''
+    AWS_S3_BUCKET_NAME: ''
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs

@@ -11,10 +11,12 @@ HEADERS = ({
     'Accept-Language': 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
 })
 
+JSON_PRODUCT_LINK = '/opt/airflow/src/products.json'
+EXPORT_DATA_PATH = '/opt/airflow/src/temp/file.csv'
 
 def main():
 
-    items = open_json_file('/opt/airflow/src/products.json')
+    items = open_json_file(JSON_PRODUCT_LINK)
     list_items = items["products"] 
 
     data = pd.DataFrame(columns=["product_id","name","price","link","image"])
@@ -30,7 +32,7 @@ def main():
         print("Collected Data: \n", json.dumps(collected_data, indent=4, default=str))
         data = data.append(collected_data, ignore_index=True)
 
-    data.to_csv('/opt/airflow/src/temp/file.csv', index=False)
+    data.to_csv(EXPORT_DATA_PATH, index=False)
 
 if __name__ == "__main__":
     main()

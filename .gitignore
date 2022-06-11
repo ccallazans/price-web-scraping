@@ -1,9 +1,3 @@
-env/
-src/__pycache__/
-src/data/prices.csv
-.ipynb_checkpoints/
-src/data/*
-aws/awscliv2.zip
 airflow/logs/*
 src/temp/file.csv
-**/__pycache__/
+**/__pycache__/**

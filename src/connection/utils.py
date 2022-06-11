@@ -1,6 +1,8 @@
 import requests
 from extract.scrap import open_json_file
 
+JSON_PRODUCT_LINK = '/opt/airflow/src/products.json'
+
 def access_page_content(url, header):
     request = requests.get(url, headers=header)
     
@@ -17,7 +19,7 @@ def simple_access_page(url):
 
 
 def verify_urls():
-    items = open_json_file('/opt/airflow/src/products.json')
+    items = open_json_file(JSON_PRODUCT_LINK)
     list_items = items["products"] 
 
     for link in list_items:
