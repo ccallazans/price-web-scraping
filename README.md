@@ -3,6 +3,7 @@ Amazon Price Web Scrap
 =============
 Collect Historical Price Data From Amazon
 
+
 Table of Contents
 -----------------
 
@@ -12,9 +13,16 @@ Table of Contents
 -   [Authors](#authors)
 -   [License](#license)
 
+
 Project Background
 ----------
-![Pipeline](/assets/pipeline.png "Pipeline")
+Pipeline:
+<br>
+<img src="assets/airflow-pipeline.png" alt="Pipeline" width="500"/>
+<br>
+DAG:
+<br>
+<img src="assets/dag.png" alt="Pipeline" width="650"/>
 
 Collect historical price data for selected products in order to use it for analytical purposes.
 Save price data on S3 and local file system.
@@ -28,31 +36,38 @@ Install & Setup
 git clone https://github.com/ccallazans/price-web-scraping.git
 cd price-web-scraping
 ```
-Install required packages
+Edit docker-compose file on /airflow/docker-compose.yaml with credentials
 ```
-pip install -r requirements.txt
+AWS_ACCESS_KEY_ID: ''
+AWS_SECRET_ACCESS_KEY: ''
+AWS_DEFAULT_REGION: ''
+AWS_S3_BUCKET_NAME: ''
 ```
-Install AWS Cli and configure access to s3
+On ~/price-web-scraping/ folder run start.sh to create and run the containers.
 ```
-https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+bash start.sh
 ```
-Look the name gave by you in Amazon S3 Bucket and edit the variable "BUCKET_NAME" on connection.py.
+Wait until the containers load and access Airflow webserver on:
+```
+localhost:8080
+```
+Enter the following credentials:
+```
+username: airflow
+password: airflow
+```
+On DAGs page, use the following dag: "amazon_web_scrap"
 
 
 Usage
 -----
 
-It can be used to collect the data from a group of links. Use the "src/products.json" file to edit these links
-```
-python src/app.py
-```
-It can be used to collect the data from an specific item.
-```
-python src/app.py amazon_product_link
-ex:
-python src/app.py https://www.amazon.com.br/gp/product/B07FQK1TS9
-```
-
+It can be used to collect the data from a list of links. Use the "src/products.json" file to edit these links.<br>
+Add another line on the file the product link. Ex:
+<br>
+<img src="assets/collect_link.png" alt="Collect" width="600"/>
+<br><br>
+<img src="assets/append_link.png" alt="Append" width="600"/>
 
 
 Authors

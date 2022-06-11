@@ -1,3 +1,4 @@
 airflow/logs/*
 src/temp/file.csv
-**/__pycache__/**
+**/__pycache__/
+*/__pycache__/
