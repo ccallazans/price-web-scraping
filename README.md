@@ -29,6 +29,7 @@ Save price data on S3 and local file system.
 
 Objective: show to a client the variation of price about one or more product.
 
+There will have data analysis with the data collected coming soon.
 
 Install & Setup
 ---------------
